@@ -37,9 +37,11 @@ func WrapErr(err ...error) error {
 		return err[0]
 	}
 
-	var format string
-	lastIndex := len(err) - 1
-	args := make([]any, len(err))
+	var (
+		format    = ""
+		lastIndex = len(err) - 1
+		args      = make([]any, len(err))
+	)
 
 	for i, e := range err {
 		args[i] = e
